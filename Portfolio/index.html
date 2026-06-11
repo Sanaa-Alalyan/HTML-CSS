@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanaa Alalyan | Creative Portfolio</title>
+    <style>
+        /* --- General Resets & Vaporwave-Inspired Palette --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b001a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding-top: 60px; /* Offset for fixed navbar */
+        }
+
+        /* --- Fixed Menu Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #ff007f; /* Neon Pink background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+        }
+
+        .navbar a {
+            color: #00ffff; /* Cyber Cyan font color */
+            text-decoration: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Navbar Hover Effect */
+        .navbar a:hover {
+            background-color: #00ffff;
+            color: #ff007f;
+            border-radius: 5px;
+            text-shadow: none;
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        /* --- Structural Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00ffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        /* --- Hero Video Text Overlay (Autoplay, Mute, Loop) --- */
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(112, 0, 255, 0.6);
+        }
+
+        .hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Text Over Video */
+        .video-text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 0, 26, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-text-overlay h1 {
+            font-size: 4rem;
+            color: #00ffff;
+            text-shadow: 0 0 20px #ff007f;
+            margin-bottom: 10px;
+        }
+
+        /* --- Two-Column Layout --- */
+        .two-column-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .column {
+            /* Specific width and height */
+            width: 50%;
+            height: 350px;
+            padding: 30px;
+            background: linear-gradient(145deg, #1f0033, #3d0066);
+            border-radius: 12px;
+            border: 2px solid #7000ff;
+            overflow-y: auto;
+        }
+
+        .column h3 {
+            margin-bottom: 15px;
+            color: #ff007f;
+        }
+
+        .column p {
+            /* Specified font color inside columns */
+            color: #e0ccff;
+            font-size: 1.1rem;
+        }
+
+        /* --- Paragraph Element Hover Effect --- */
+        .interactive-p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            padding: 15px;
+            background-color: #1a1a3a;
+            border-left: 5px solid #ff007f;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* CSS hover effect for <p> element */
+        .interactive-p:hover {
+            background-color: #ff007f;
+            color: #000000;
+            transform: translateX(10px);
+            box-shadow: -5px 5px 15px rgba(255, 0, 127, 0.4);
+        }
+
+        /* --- Centered, Filtered Image with Rounded Edges --- */
+        .image-showcase {
+            display: flex;
+            justify-content: center; /* Centers the image wrapper horizontally */
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .showcase-img {
+            width: 400px;
+            max-width: 100%;
+            height: auto;
+            /* Configuration parameters specified in instructions */
+            border-radius: 25px; /* Rounded edges */
+            filter: hue-rotate(90deg) saturate(150%); /* CSS filter applied */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
+        /* --- Static Image Static Text Overlay Section --- */
+        .static-overlay-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .static-overlay-container img {
+            width: 100%;
+            display: block;
+        }
+
+        .static-text-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255, 0, 127, 0.85);
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* --- Image Overlay Fade Effect --- */
+        .fade-gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .fade-container {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .fade-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0; /* Hidden by default */
+            transition: .5s ease;
+            background-color: #7000ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Overlay fade transition on hover */
+        .fade-container:hover .fade-overlay {
+            opacity: 1;
+        }
+
+        .fade-text {
+            color: #00ffff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* --- Styled HTML Table --- */
+        .table-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #120024;
+            /* Table Border configuration */
+            border: 3px solid #00ffff; 
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+
+        th, td {
+            /* Table cell padding parameter */
+            padding: 15px; 
+            text-align: left;
+            border: 1px solid #3d0066;
+        }
+
+        tr:nth-child(even) {
+            background-color: #1c0038;
+        }
+
+        /* Top row background designation */
+        tr:first-child {
+            background-color: #7000ff; 
+            color: #ffffff;
+        }
+
+        th {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Styled Footer Element --- */
+        footer {
+            background-color: #05000d;
+            border-top: 2px solid #ff007f;
+            padding: 30px;
+            margin-top: 100px;
+        }
+
+        footer p {
+            /* Configuration rules specified in instructions */
+            text-align: center; /* Centered */
+            font-weight: bold;  /* Bold */
+            color: #ff007f;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+    </nav>
+
+    <header id="home" class="container">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-32155-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-text-overlay">
+                <h1>Sanaa Alalyan</h1>
+                <p style="font-size: 1.5rem; color: #ffffff;">A Creative Student</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="two-column-layout">
+                <div class="column">
+                    <h3>My Identity</h3>
+                    <p>Hello! I am Sanaa Alalyan, a student driven by technology, aesthetic design, and building bold web experiences. I like experimenting with code layouts, custom modules, graphics engineering, and custom color frameworks.</p>
+                </div>
+                <div class="column">
+                    <h3>My Vision</h3>
+                    <p>I aim to blend rigorous core computing engineering values with modern UI design paradigms. This interactive portfolio maps out my foundational progression through essential client-side web development configurations.</p>
+                </div>
+            </div>
+            
+            <p class="interactive-p">💡 Hover over this message block! This component features isolated interactive animations built directly using native CSS selection properties.</p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Visual Gallery</h2>
+            
+            <h3 style="text-align:center; margin-bottom:15px; color:#ff007f;">Centered, Filtered Image with Rounded Corners</h3>
+            <div class="image-showcase">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Cyberpunk Setup" class="showcase-img">
+            </div>
+
+            <h3 style="text-align:center; margin:40px 0 15px 0; color:#ff007f;">Text Over Static Base Image</h3>
+            <div class="static-overlay-container">
+                <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=600&q=80" alt="Gradient background">
+                <div class="static-text-overlay">
+                    Static Layer Text Element Positioned Directly Above Image
+                </div>
+            </div>
+
+            <h3 style="text-align:center; margin:40px 0 15px 0; color:#ff007f;">Image Overlay Fade Transition Effect</h3>
+            <div class="fade-gallery">
+                <div class="fade-container">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Abstract Art" class="fade-image">
+                    <div class="fade-overlay">
+                        <div class="fade-text">Project Unlocked! 🚀</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="metrics">
+            <h2>Academic Tracker</h2>
+            <div class="table-section">
+                <table>
+                    <tr>
+                        <th>Course Module</th>
+                        <th>Status</th>
+                        <th>Competency Marks</th>
+                    </tr>
+                    <tr>
+                        <td>Advanced Interfaces (HTML/CSS)</td>
+                        <td>Active Evaluation</td>
+                        <td>Distinction High</td>
+                    </tr>
+                    <tr>
+                        <td>Interactive Layout Frameworks</td>
+                        <td>Completed</td>
+                        <td>Elite Tier</td>
+                    </tr>
+                    <tr>
+                        <td>Multimedia Processing Systems</td>
+                        <td>Pending Final</td>
+                        <td>A+ Verified</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sanaa Alalyan. Designed From Scratch. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
